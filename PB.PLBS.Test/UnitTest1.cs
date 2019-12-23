@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace PN.PLBS.Test
+namespace PB.PLBS.Test
 {
     public class UnitTest1
     {
