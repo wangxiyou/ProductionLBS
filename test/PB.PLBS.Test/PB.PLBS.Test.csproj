@@ -13,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domains\Test\ProductLines\" />
-    <Folder Include="Domains\Test\ProductTasks\" />
-    <Folder Include="Domains\Mocks\" />
+    <ProjectReference Include="..\..\src\PB.PLBS.Domain.Core\PB.PLBS.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PB.PLBS.Domain.Core.Bases
+namespace PB.PLBS.Domain
 {
     /// <summary>
     /// 定义一个可命名对象的基础实现
