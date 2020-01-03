@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PB.PLBS.Domain.Core.Bases
+namespace PB.PLBS.Domain
 {
     /// <summary>
     /// 定义一个可命名对象的基础实现
@@ -10,7 +10,7 @@ namespace PB.PLBS.Domain.Core.Bases
     [Serializable]
     public class NamedObject : INamedObject, IComparable<INamedObject>
     {
-        private string m_Code = string.Empty;
+        private string m_ID = string.Empty;
         private string m_Name = string.Empty;
         private int m_SortOrder = 0;
         private bool m_Enable = true;
@@ -20,24 +20,24 @@ namespace PB.PLBS.Domain.Core.Bases
         {
 
         }
-        public NamedObject(string code)
+        public NamedObject(string id)
         {
-            m_Code = string.IsNullOrEmpty(code) ? string.Empty : code;
+            m_ID = string.IsNullOrEmpty(id) ? string.Empty : id;
         }
 
         #region Members Of INamedObject.
         /// <summary>
         /// 获取或设置编号
         /// </summary>
-        public string Code
+        public string ID
         {
             get
             {
-                return string.IsNullOrEmpty(m_Code) ? string.Empty : m_Code;
+                return string.IsNullOrEmpty(m_ID) ? string.Empty : m_ID;
             }
             set
             {
-                m_Code = string.IsNullOrEmpty(value) ? string.Empty : value;
+                m_ID = string.IsNullOrEmpty(value) ? string.Empty : value;
             }
         }
         /// <summary>
@@ -47,11 +47,11 @@ namespace PB.PLBS.Domain.Core.Bases
         {
             get
             {
-                return string.IsNullOrEmpty(m_Code) ? string.Empty : m_Code;
+                return string.IsNullOrEmpty(m_Name) ? string.Empty : m_Name;
             }
             set
             {
-                m_Code = string.IsNullOrEmpty(value) ? string.Empty : value;
+                m_Name = string.IsNullOrEmpty(value) ? string.Empty : value;
             }
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace PB.PLBS.Domain.Core.Bases
         /// <returns></returns>
         public  INamedObject PrototypeCopy()
         {
-            return PrototypeCopy(Code);
+            return PrototypeCopy(ID);
         }
         /// <summary>
         /// 使用当前对象为原型,创建一个副本
@@ -120,13 +120,13 @@ namespace PB.PLBS.Domain.Core.Bases
         #region Override Members.
         public override int GetHashCode()
         {
-            return Code.GetHashCode();
+            return ID.GetHashCode();
         }
         public override bool Equals(object obj)
         {
             NamedObject component = obj as NamedObject;
             if (component == null) return false;
-            return Code.Equals(component.Code);
+            return ID.Equals(component.ID);
         }
         public override string ToString()
         {

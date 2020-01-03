@@ -7,15 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domains\Test\ProductLines\" />
-    <Folder Include="Domains\Test\ProductTasks\" />
-    <Folder Include="Domains\Mocks\" />
+    <ProjectReference Include="..\..\src\PB.PLBS.Domain.Core\PB.PLBS.Domain.Core.csproj" />
+    <ProjectReference Include="..\..\src\PB.PLBS.Domain\PB.PLBS.Domain.csproj" />
   </ItemGroup>
 
 </Project>

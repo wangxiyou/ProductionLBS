@@ -13,7 +13,7 @@ namespace PB.PLBS.Domain
         /// <summary>
         /// 获取或设置编号
         /// </summary>
-        string Code { get; set; }
+        string ID { get; set; }
         /// <summary>
         /// 获取或设置名称
         /// </summary>

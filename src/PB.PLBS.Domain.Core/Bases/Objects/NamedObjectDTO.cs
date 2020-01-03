@@ -89,7 +89,7 @@ namespace PB.PLBS.Domain
         public static NamedObjectDTO Create(INamedObject obj)
         {
             if (obj == null) return NamedObjectDTO.Empty;
-            NamedObjectDTO result = new NamedObjectDTO(obj.Code, obj.Name, obj.SortOrder, obj.Enable, obj.GetObjectToken(), false);
+            NamedObjectDTO result = new NamedObjectDTO(obj.ID, obj.Name, obj.SortOrder, obj.Enable, obj.GetObjectToken(), false);
             return result;
         }
     }

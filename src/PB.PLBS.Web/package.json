@@ -1,0 +1,13 @@
+{
+  "name": "PB.PLBS.Web",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
