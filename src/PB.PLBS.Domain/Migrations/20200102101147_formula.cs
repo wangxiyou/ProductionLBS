@@ -2,7 +2,7 @@
 
 namespace PB.PLBS.Domain.Migrations
 {
-    public partial class formula : Migration
+    public partial class formula : Migration  
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
