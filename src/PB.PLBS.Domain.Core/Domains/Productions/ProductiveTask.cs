@@ -7,12 +7,12 @@ namespace PB.PLBS.Domain.Task
 {
     public class ProductiveTask : NamedObject
     {
-        private string m_PurchaserSide = string.Empty;
-        private string m_ConstructionSide = string.Empty;
-        private string m_ProjectName = string.Empty;
-        private double m_ExpectQuantity = 0;
-        private Location m_ConstructionLocation = Location.Empty;
-        private Formula m_TargetFormula = null;
+        private string _purchaserSide = string.Empty;
+        private string _constructionSide = string.Empty;
+        private string _projectName = string.Empty;
+        private double _expectQuantity = 0;
+        private Location _constructionLocation = Location.Empty;
+        private Formula _targetFormula = null;
 
         public ProductiveTask()
         {
@@ -24,12 +24,12 @@ namespace PB.PLBS.Domain.Task
         }
 
         #region Public Query APIs.
-        public string PurchaserSide { get => m_PurchaserSide; set => m_PurchaserSide = value; }
-        public string ConstructionSide { get => m_ConstructionSide; set => m_ConstructionSide = value; }
-        public string ProjectName { get => m_ProjectName; set => m_ProjectName = value; }
-        public double ExpectQuantity { get => m_ExpectQuantity; set => m_ExpectQuantity = value; }
-        public Formula TargetFormula { get => m_TargetFormula; set => m_TargetFormula = value; }
-        public Location ConstructionLocation { get => m_ConstructionLocation; set => m_ConstructionLocation = value; }
+        public string PurchaserSide { get => _purchaserSide; set => _purchaserSide = value; }
+        public string ConstructionSide { get => _constructionSide; set => _constructionSide = value; }
+        public string ProjectName { get => _projectName; set => _projectName = value; }
+        public double ExpectQuantity { get => _expectQuantity; set => _expectQuantity = value; }
+        public Formula TargetFormula { get => _targetFormula; set => _targetFormula = value; }
+        public Location ConstructionLocation { get => _constructionLocation; set => _constructionLocation = value; }
 
         public Material[] GetMaterialRequirements()
         {

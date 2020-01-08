@@ -12,8 +12,8 @@ namespace PB.PLBS.Domain.Task
     [Serializable]
     public class Formula : NamedObject
     {
-        private string m_ConcreteToken = string.Empty;
-        private IList<FormulaItem> m_FormulaItms;
+        private string _concreteTokenString = string.Empty;
+        private IList<FormulaItem> _formulaItms;
 
         public Formula()
         {
@@ -30,7 +30,7 @@ namespace PB.PLBS.Domain.Task
         /// <summary>
         /// 获取或设置配方的混凝土标记
         /// </summary>
-        public string ConcreteToken { get => m_ConcreteToken; set => m_ConcreteToken = value; }
+        public string ConcreteTokenString { get => _concreteTokenString; set => _concreteTokenString = value; }
         /// <summary>
         /// 获取包含的所有配方项的集合
         /// </summary>
@@ -79,7 +79,6 @@ namespace PB.PLBS.Domain.Task
                     return;
                 }
             }
-            item.Formula = this;
             GetFormulaItms().Add(item);
         }
         public void RemoveFormulaItem(FormulaItem item)
@@ -95,11 +94,11 @@ namespace PB.PLBS.Domain.Task
         /// <returns></returns>
         protected virtual IList<FormulaItem> GetFormulaItms()
         {
-            if (m_FormulaItms == null)
+            if (_formulaItms == null)
             {
-                m_FormulaItms = new List<FormulaItem>();
+                _formulaItms = new List<FormulaItem>();
             }
-            return m_FormulaItms;
+            return _formulaItms;
         }
         #endregion
 
@@ -107,7 +106,7 @@ namespace PB.PLBS.Domain.Task
         public static Formula Builder(string code, string concreteToken, IEnumerable<FormulaItem> items)
         {
             Formula result = new Formula(code);
-            result.ConcreteToken = concreteToken;
+            result.ConcreteTokenString = concreteToken;
             if (items != null)
             {
                 foreach (FormulaItem item in items)
@@ -120,7 +119,7 @@ namespace PB.PLBS.Domain.Task
         public static Formula Create(string code,string concreteToken,IEnumerable<FormulaItem> items)
         {
             Formula result = new Formula(code);
-            result.ConcreteToken = concreteToken;
+            result.ConcreteTokenString = concreteToken;
             if(items!= null)
             {
                 foreach(FormulaItem  item in items)

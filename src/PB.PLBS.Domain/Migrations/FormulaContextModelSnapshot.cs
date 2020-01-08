@@ -23,7 +23,7 @@ namespace PB.PLBS.Domain.Migrations
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ConcreteToken")
+                    b.Property<string>("ConcreteTokenString")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Enable")

@@ -11,7 +11,7 @@ namespace PB.PLBS.Domain.Task
     [Serializable]
     public class ProductiveTaskPackage : NamedObject
     {
-        private IList<ProductiveTask> m_TaskItems = null;
+        private IList<ProductiveTask> _taskItems = null;
 
         public ProductiveTaskPackage()
         {
@@ -78,11 +78,11 @@ namespace PB.PLBS.Domain.Task
         /// <returns></returns>
         protected virtual IList<ProductiveTask> GetTaskItms()
         {
-            if (m_TaskItems == null)
+            if (_taskItems == null)
             {
-                m_TaskItems = new List<ProductiveTask>();
+                _taskItems = new List<ProductiveTask>();
             }
-            return m_TaskItems;
+            return _taskItems;
         }
         private void AddMaterialInArray(List<Material> materials,Material material)
         {

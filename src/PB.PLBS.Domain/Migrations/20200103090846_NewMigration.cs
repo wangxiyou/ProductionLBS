@@ -2,7 +2,7 @@
 
 namespace PB.PLBS.Domain.Migrations
 {
-    public partial class formula : Migration  
+    public partial class NewMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace PB.PLBS.Domain.Migrations
                     Name = table.Column<string>(nullable: true),
                     SortOrder = table.Column<int>(nullable: false),
                     Enable = table.Column<bool>(nullable: false),
-                    ConcreteToken = table.Column<string>(nullable: true)
+                    ConcreteTokenString = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

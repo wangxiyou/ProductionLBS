@@ -12,8 +12,7 @@ namespace PB.PLBS.Domain.Task
     [Serializable]
     public class FormulaItem : NamedObject
     {
-        private Formula m_Formula = null;
-        private Material m_ExpectMaterial = null;
+        private Material _expectMaterial = null;
 
         public FormulaItem()
         {
@@ -23,12 +22,11 @@ namespace PB.PLBS.Domain.Task
         private FormulaItem(string code,Material material)
             :base(code)
         {
-            m_ExpectMaterial = material;
+            _expectMaterial = material;
         }
 
         #region Public Query APIs.
-        public Material ExpectMaterial { get => m_ExpectMaterial;}
-        public Formula Formula { get => m_Formula; set => m_Formula = value; }
+        public Material ExpectMaterial { get => _expectMaterial;}
 
         public Material GetMaterialRequirement(double yield)
         {
@@ -49,7 +47,7 @@ namespace PB.PLBS.Domain.Task
             {
                 throw new DomainExcetption(CreateDTO(), "不支持与指定物料合并");
             }
-            m_ExpectMaterial = ExpectMaterial.Combine(item?.ExpectMaterial);
+            _expectMaterial = ExpectMaterial.Combine(item?.ExpectMaterial);
         }
         #endregion
 

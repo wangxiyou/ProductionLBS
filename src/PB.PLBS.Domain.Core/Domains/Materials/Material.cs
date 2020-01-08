@@ -10,9 +10,9 @@ namespace PB.PLBS.Domain.Materials
     [Serializable]
     public class Material : IValueObject
     {
-        private string m_BomCode = string.Empty;
-        private string m_BomName = string.Empty;
-        private double m_Quantity = 0;
+        private string _bomCode = string.Empty;
+        private string _bomName = string.Empty;
+        private double _quantity = 0;
 
         public Material()
         {
@@ -21,26 +21,35 @@ namespace PB.PLBS.Domain.Materials
 
         public Material(string bomCode,string bomName,double quantity)
         {
-            m_BomCode =  bomCode;
-            m_BomName =  bomName;
-            m_Quantity = quantity <= 0 ? 0 : quantity;
+            _bomCode =  bomCode;
+            _bomName =  bomName;
+            _quantity = quantity <= 0 ? 0 : quantity;
         }
 
         #region Public Query APIs.
+        /// <summary>
+        /// 获取物料的编号
+        /// </summary>
         public string BomCode
         {
-            get => string.IsNullOrEmpty(m_BomCode) ? string.Empty : m_BomCode;
-            set => m_BomCode = string.IsNullOrEmpty(value) ? string.Empty : value;
+            get => string.IsNullOrEmpty(_bomCode) ? string.Empty : _bomCode;
+            set => _bomCode = string.IsNullOrEmpty(value) ? string.Empty : value;
         }
+        /// <summary>
+        /// 获取物料的名称
+        /// </summary>
         public string BomName
         {
-            get => string.IsNullOrEmpty(m_BomName) ? string.Empty : m_BomName;
-            set => m_BomName = string.IsNullOrEmpty(value) ? string.Empty : value;
+            get => string.IsNullOrEmpty(_bomName) ? string.Empty : _bomName;
+            set => _bomName = string.IsNullOrEmpty(value) ? string.Empty : value;
         }
+        /// <summary>
+        /// 获取物料的数量
+        /// </summary>
         public double Quantity
         {
-            get => m_Quantity<0 ? 0 : m_Quantity;
-            set => m_Quantity = value < 0 ? 0 : value;
+            get => _quantity<0 ? 0 : _quantity;
+            set => _quantity = value < 0 ? 0 : value;
         }
         public bool EqualBom(Material obj)
         {
@@ -48,12 +57,21 @@ namespace PB.PLBS.Domain.Materials
             if (string.IsNullOrEmpty(BomCode) || string.IsNullOrEmpty(obj.BomCode)) return false;
             return BomCode.Equals(obj.BomCode);
         }
+        /// <summary>
+        /// 获取当前物料是否可以与指定的物料合并
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool CanCombine(Material obj)
         {
             if (obj == null) return true;
             if (string.IsNullOrEmpty(BomCode) || string.IsNullOrEmpty(obj.BomCode)) return false;
             return BomCode.Equals(obj.BomCode);
         }
+        /// <summary>
+        /// 验证物料对象是否有效
+        /// </summary>
+        /// <returns></returns>
         public bool ValidateObject()
         {
             if (string.IsNullOrEmpty(BomCode)) return false;
@@ -62,9 +80,13 @@ namespace PB.PLBS.Domain.Materials
         #endregion
 
         #region Public Operator APIs.
+        /// <summary>
+        /// 初始化物料的数量
+        /// </summary>
+        /// <param name="quantity"></param>
         public void InitQuantity(double quantity)
         {
-            m_Quantity = quantity < 0 ? 0 : quantity;
+            _quantity = quantity < 0 ? 0 : quantity;
         }
         /// <summary>
         /// 把当前物料和指定的物料合并，返回一个新的物料，并把当前物料和指定物料清空
@@ -108,7 +130,7 @@ namespace PB.PLBS.Domain.Materials
         /// <returns></returns>
         public IValueObject PrototypeCopy()
         {
-            Material obj = new Material(m_BomCode, m_BomName, m_Quantity);
+            Material obj = new Material(_bomCode, _bomName, _quantity);
             obj.CopyProperty(this);
             return obj;
         }
@@ -120,9 +142,9 @@ namespace PB.PLBS.Domain.Materials
         {
             Material component = obj as Material;
             if (component == null) return;
-            m_BomCode = component.m_BomCode;
-            m_BomName = component.m_BomName;
-            m_Quantity = component.m_Quantity;
+            _bomCode = component._bomCode;
+            _bomName = component._bomName;
+            _quantity = component._quantity;
         }
         #endregion
 

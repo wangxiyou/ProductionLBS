@@ -18,10 +18,13 @@ namespace PB.PLBS.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FormulaItem>().HasOne(f => f.Formula)
-                .WithMany(p=>p.FormulaItms);
-            //modelBuilder.Entity<Formula>().HasMany(f => f.FormulaItms).WithOne();
-            //base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<FormulaItem>(dbo =>
+            //{
+            //    dbo.ToTable("Formula");
+            //    dbo.Property(s => s.ExpectMaterial).HasColumnName("BomCode");
+            //});
+            
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

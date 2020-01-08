@@ -10,25 +10,25 @@ namespace PB.PLBS.Domain
     [Serializable]
     public struct Location
     {
-        private string m_Addresss;
-        private double m_Longitude;
-        private double m_Latitude;
-        private bool m_IsEmpty;
+        private string _addresss;
+        private double _longitude;
+        private double _latitude;
+        private bool _isEmpty;
 
         public static Location Empty = CreateEmpty();
 
         private Location(string address,double log,double lat,bool isEmpty)
         {
-            m_Addresss = address;
-            m_Longitude = log;
-            m_Latitude = lat;
-            m_IsEmpty = isEmpty;
+            _addresss = address;
+            _longitude = log;
+            _latitude = lat;
+            _isEmpty = isEmpty;
         }
 
-        public string Addresss { get => string.IsNullOrEmpty(m_Addresss)?string.Empty:m_Addresss; set => m_Addresss = value; }
-        public double Longitude { get => m_Longitude; set => m_Longitude = value; }
-        public double Latitude { get => m_Latitude; set => m_Latitude = value; }
-        public bool IsEmpty { get => m_IsEmpty; set => m_IsEmpty = value; }
+        public string Addresss { get => string.IsNullOrEmpty(_addresss)?string.Empty:_addresss; set => _addresss = value; }
+        public double Longitude { get => _longitude; set => _longitude = value; }
+        public double Latitude { get=> _latitude; set=> _latitude = value; }
+        public bool IsEmpty { get => _isEmpty; set => _isEmpty = value; }
 
         public static Location CreateEmpty()
         {
